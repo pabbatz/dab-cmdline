@@ -161,20 +161,15 @@ endif ()
 	     ${${objectName}_HDRS}
 	     ../dab-api.h
 	     ../library/includes/dab-constants.h
-         ../library/includes/support/band-handler.h
 	     ./ringbuffer.h
-	     ./audio-base.h
 	     ./audiosink.h
-	     ./newconverter.h
 	     ../devices/device-handler.h
 	)
 
 	set (${objectName}_SRCS
 	     ${${objectName}_SRCS}
 	     ./main.cpp
-	     ./audio-base.cpp
 	     ./audiosink.cpp
-	     ./newconverter.cpp
 	     ../devices/device-handler.cpp
          ../library/src/support/band-handler.cpp
 	)

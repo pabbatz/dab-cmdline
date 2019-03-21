@@ -49,6 +49,12 @@ list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake/Modules)
        set (extraLibs ${extraLibs} ${PTHREADS})
     endif (NOT(PTHREADS))
 
+    find_package(LibSampleRate)
+        if (NOT LIBSAMPLERATE_FOUND)
+            message(FATAL_ERROR "please install libsamplerate")
+        endif ()
+        list(APPEND extraLibs ${LIBSAMPLERATE_LIBRARY})
+
 #######################################################################
 #
 
@@ -94,9 +100,11 @@ list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake/Modules)
          ./includes/backend/virtual-backend.h
          ./includes/backend/audio-backend.h
          ./includes/backend/data-backend.h
+         ./includes/backend/audio/audio-base.h
          ./includes/backend/audio/faad-decoder.h
          ./includes/backend/audio/mp4processor.h 
          ./includes/backend/audio/mp2processor.h 
+         ./includes/backend/audio/newconverter.h 
          ./includes/backend/data/virtual-datahandler.h 
          ./includes/backend/data/pad-handler.h 
          ./includes/backend/data/tdc-datahandler.h 
@@ -138,8 +146,10 @@ list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake/Modules)
          ./src/backend/virtual-backend.cpp
          ./src/backend/audio-backend.cpp
          ./src/backend/data-backend.cpp
+         ./src/backend/audio/audio-base.cpp
          ./src/backend/audio/mp4processor.cpp 
          ./src/backend/audio/mp2processor.cpp 
+         ./src/backend/audio/newconverter.cpp 
          ./src/backend/data/virtual-datahandler.cpp 
          ./src/backend/data/tdc-datahandler.cpp
          ./src/backend/data/pad-handler.cpp 

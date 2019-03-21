@@ -118,7 +118,6 @@ list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake/Modules)
 	     ./audio-base.h
 	     ./audiosink.h
 	     ./filesink.h
-	     ./newconverter.h
 	     ../dab-api.h
 	     ../devices/device-handler.h
 	     ../library/includes/dab-constants.h
@@ -139,9 +138,11 @@ list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake/Modules)
 	     ../library/includes/backend/virtual-backend.h
 	     ../library/includes/backend/audio-backend.h
 	     ../library/includes/backend/data-backend.h
-	     ../library/includes/backend/audio/faad-decoder.h
+	     ../library/includes/backend/audio/audio-base.h
+	     ../library/includes/backend/audio/faad-decoder.h 
 	     ../library/includes/backend/audio/mp4processor.h 
 	     ../library/includes/backend/audio/mp2processor.h 
+	     ../library/includes/backend/audio/newconverter.h 
 	     ../library/includes/backend/data/virtual-datahandler.h 
 	     ../library/includes/backend/data/tdc-datahandler.h 
 	     ../library/includes/backend/data/pad-handler.h 
@@ -166,7 +167,6 @@ list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake/Modules)
 	     ./audio-base.cpp
 	     ./audiosink.cpp
 	     ./filesink.cpp
-	     ./newconverter.cpp
 	     ../devices/device-handler.cpp
 	     ../library/dab-api.cpp
 	     ../library/src/dab-processor.cpp
@@ -187,8 +187,10 @@ list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake/Modules)
 	     ../library/src/backend/virtual-backend.cpp
 	     ../library/src/backend/audio-backend.cpp
 	     ../library/src/backend/data-backend.cpp
+	     ../library/src/backend/audio/audio-base.cpp 
 	     ../library/src/backend/audio/mp4processor.cpp 
 	     ../library/src/backend/audio/mp2processor.cpp 
+	     ../library/src/backend/audio/newconverter.cpp 
 	     ../library/src/backend/data/virtual-datahandler.cpp 
 	     ../library/src/backend/data/tdc-datahandler.cpp 
 	     ../library/src/backend/data/pad-handler.cpp 

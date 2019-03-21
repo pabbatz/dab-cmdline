@@ -1,10 +1,10 @@
 #
 /*
- *    Copyright (C) 2011, 2012, 2013
+ *    Copyright (C)  2009, 2010, 2011
  *    Jan van Katwijk (J.vanKatwijk@gmail.com)
  *    Lazy Chair Computing
  *
- *    This file is part of the main program of the DAB library
+ *    This file is part of the main program for the DAB library
  *
  *    DAB library is free software; you can redistribute it and/or modify
  *    it under the terms of the GNU General Public License as published by
@@ -19,46 +19,35 @@
  *    You should have received a copy of the GNU General Public License
  *    along with DAB library; if not, write to the Free Software
  *    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
  */
-#ifndef	__NEW_CONVERTER__
-#define	__NEW_CONVERTER__
 
-#include	<math.h>
-#include	<complex>
-#include	<stdint.h>
-#include	<unistd.h>
-#include	<limits>
+#ifndef __AUDIO_BASE__
+#define	__AUDIO_BASE__
+#include	<stdio.h>
+#include	<cstdint>
 #include	<samplerate.h>
+#include	"newconverter.h"
 
 typedef float   DSPFLOAT;
 typedef std::complex<DSPFLOAT> DSPCOMPLEX;
 
-using namespace std;
-
-class	newConverter {
-private:
-	int32_t		inRate;
-	int32_t		outRate;
-	double		ratio;
-	int32_t		outputLimit;
-	int32_t		inputLimit;
-	SRC_STATE	*converter;
-	SRC_DATA	*src_data;
-	float		*inBuffer;
-	float		*outBuffer;
-	int32_t		inp;
+class	audioBase {
 public:
-		newConverter (int32_t inRate, int32_t outRate, 
-	                      int32_t inSize);
-
-		~newConverter (void);
-
-	bool	convert (DSPCOMPLEX v,
-	                 DSPCOMPLEX *out, int32_t *amount);
-
-	int32_t	getOutputsize (void);
+			audioBase		(void);
+virtual			~audioBase		(void);
+virtual	void		stop			(void);
+virtual	void		restart			(void);
+	void		audioOut		(int16_t *, int32_t, int32_t);
+private:
+	void		audioOut_16000		(int16_t *, int32_t);
+	void		audioOut_24000		(int16_t *, int32_t);
+	void		audioOut_32000		(int16_t *, int32_t);
+	void		audioOut_48000		(int16_t *, int32_t);
+	newConverter	converter_16;
+	newConverter	converter_24;
+	newConverter	converter_32;
+protected:
+virtual	void		audioOutput		(float *, int32_t);
 };
-
 #endif
 

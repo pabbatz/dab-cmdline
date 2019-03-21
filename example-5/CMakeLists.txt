@@ -273,10 +273,8 @@ endif ()
 	set (${objectName}_HDRS
 	     ${${objectName}_HDRS}
 	     ./ringbuffer.h
-	     ./audio-base.h
 	     ./audiosink.h
 	     ./filesink.h
-	     ./newconverter.h
 	     ./server-thread/tcp-server.h
 	     ../dab-api.h
 	     ../devices/device-handler.h
@@ -298,9 +296,11 @@ endif ()
 	     ../library/includes/backend/virtual-backend.h
 	     ../library/includes/backend/audio-backend.h
 	     ../library/includes/backend/data-backend.h
+	     ../library/includes/backend/audio/audio-base.h
 	     ../library/includes/backend/audio/faad-decoder.h
 	     ../library/includes/backend/audio/mp4processor.h 
 	     ../library/includes/backend/audio/mp2processor.h 
+	     ../library/includes/backend/audio/newconverter.h 
 	     ../library/includes/backend/data/virtual-datahandler.h 
 	     ../library/includes/backend/data/tdc-datahandler.h 
 	     ../library/includes/backend/data/pad-handler.h 
@@ -322,10 +322,8 @@ endif ()
 	set (${objectName}_SRCS
 	     ${${objectName}_SRCS}
 	     ./main.cpp
-	     ./audio-base.cpp
 	     ./audiosink.cpp
 	     ./filesink.cpp
-	     ./newconverter.cpp
 	     ./server-thread/tcp-server.cpp
 	     ../devices/device-handler.cpp
 	     ../library/dab-api.cpp
@@ -347,8 +345,10 @@ endif ()
 	     ../library/src/backend/virtual-backend.cpp
 	     ../library/src/backend/audio-backend.cpp
 	     ../library/src/backend/data-backend.cpp
+	     ../library/src/backend/audio/audio-base.cpp
 	     ../library/src/backend/audio/mp4processor.cpp 
 	     ../library/src/backend/audio/mp2processor.cpp 
+	     ../library/src/backend/audio/newconverter.cpp 
 	     ../library/src/backend/data/virtual-datahandler.cpp 
 	     ../library/src/backend/data/tdc-datahandler.cpp 
 	     ../library/src/backend/data/pad-handler.cpp 
